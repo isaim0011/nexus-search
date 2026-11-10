@@ -3,7 +3,9 @@
 # crates.io by an unrelated project). The installed binary is still `nexus`
 # (set explicitly below), unaffected by the package rename.
 name = "nexus-search-cli"
-version.workspace = true
+# Patch bump over the workspace's 0.1.0: fixes the docs.rs build (see
+# [package.metadata.docs.rs] below). Only this crate needed the fix.
+version = "0.1.1"
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
