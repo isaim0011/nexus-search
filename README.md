@@ -29,6 +29,41 @@ nexus-dashboard = "0.1"         # Axum HTTP API + dashboard (optional)
 
 ---
 
+## Why nexus-search?
+
+Most search engines (Meilisearch, Typesense, Tantivy, Elasticsearch) are
+standalone engines or dedicated inverted-index storage systems. They are
+blazing fast, but they introduce operational overhead: network latency,
+out-of-band sync queues, dual-write consistency issues, and extra
+infrastructure to monitor.
+
+`nexus-search` takes a different architectural approach:
+
+- **Zero extra infrastructure:** runs directly inside your Axum process,
+  backed by your existing Postgres instance (or Redis).
+- **Atomic consistency:** search updates happen in the exact same
+  transaction as your database writes — no outbox workers, no sync lag,
+  no drift.
+- **Good-enough performance for most workloads:** BM25+ and `pgvector`
+  with RRF hybrid fusion, inside the database you already run.
+
+**When to use it:** you want full-text and vector search in a Rust web
+service, your data already lives in Postgres, and you value transactional
+correctness and zero-ops simplicity over shaving milliseconds off query
+latency.
+
+**When NOT to use it:** you're building an e-commerce search-as-you-type
+bar over 10M+ products requiring sub-10ms raw keystroke latency at massive
+scale (use Meilisearch/Typesense), or a custom file-backed search cluster
+at huge scale (use Tantivy). nexus-search does not claim to out-perform
+these engines on raw query speed — no such benchmark has been run, and
+given Postgres-backed queries carry SQL parsing and connection-pool
+overhead that memory-mapped, purpose-built engines don't, it's not
+expected to win one. The trade here is operational simplicity and ACID
+consistency, not speed.
+
+---
+
 ## 10-line "add search to your Axum app"
 
 ```rust
