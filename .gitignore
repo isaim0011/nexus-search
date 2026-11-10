@@ -1,0 +1,24 @@
+/target
+Cargo.lock
+*.pdb
+.DS_Store
+
+# Leftover flat scaffold files from the original layout — already copied
+# into their proper crate subdirectories (nexus-core/src/, nexus-cli/src/,
+# nexus-postgres/src/, etc.). Left in place locally, excluded from the repo.
+/Cargo (1).toml
+/Cargo (2).toml
+/backend.rs
+/document.rs
+/facet.rs
+/index.rs
+/lib (1).rs
+/lib.rs
+/main.rs
+/migrations.rs
+/pool.rs
+/query.rs
+/schema.rs
+/score.rs
+/tokenizer.rs
+/vector.rs

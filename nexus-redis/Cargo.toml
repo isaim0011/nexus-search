@@ -1,0 +1,25 @@
+[package]
+name = "nexus-redis"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Redis backend for the Nexus search engine"
+keywords = ["search", "redis", "full-text", "bm25"]
+categories = ["database"]
+
+[dependencies]
+nexus-core = { path = "../nexus-core", package = "nexus-search-core", version = "0.1.0" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+async-trait = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+redis = { workspace = true }
+lz4_flex = { workspace = true }

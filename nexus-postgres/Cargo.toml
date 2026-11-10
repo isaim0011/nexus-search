@@ -1,0 +1,29 @@
+[package]
+name = "nexus-postgres"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "PostgreSQL backend for the Nexus search engine"
+keywords = ["search", "postgres", "full-text", "bm25", "pgvector"]
+categories = ["database"]
+
+[features]
+default = []
+pgvector = []  # enables pgvector HNSW ANN queries instead of brute-force float scan
+
+[dependencies]
+nexus-core = { path = "../nexus-core", package = "nexus-search-core", version = "0.1.0" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+async-trait = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+sqlx = { workspace = true }
+lz4_flex = { workspace = true }

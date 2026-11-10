@@ -1,0 +1,36 @@
+[package]
+# Published as "nexus-search-cli" (plain "nexus-cli" is already taken on
+# crates.io by an unrelated project). The installed binary is still `nexus`
+# (set explicitly below), unaffected by the package rename.
+name = "nexus-search-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "CLI monitor and admin tool for Nexus search indexes"
+
+[[bin]]
+name = "nexus"
+path = "src/main.rs"
+
+# This is a binary-only crate (no [lib] target). docs.rs defaults to
+# `cargo rustdoc --lib`, which fails with "no library targets found" for
+# bin-only crates — tell it to document the binary instead.
+[package.metadata.docs.rs]
+cargo-args = ["--bins"]
+
+[dependencies]
+nexus-core = { path = "../nexus-core", package = "nexus-search-core", version = "0.1.0" }
+nexus-postgres = { path = "../nexus-postgres", version = "0.1.0" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+clap = { workspace = true }
+sqlx = { workspace = true }
+uuid = { workspace = true }

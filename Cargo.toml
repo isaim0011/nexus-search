@@ -1,0 +1,59 @@
+[workspace]
+members = [
+    "nexus-core",
+    "nexus-postgres",
+    "nexus-redis",
+    "nexus-cli",
+    "nexus-dashboard",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Bimo <ibimo0dev@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/isaim0011/nexus-search"
+homepage = "https://github.com/isaim0011/nexus-search"
+
+[workspace.dependencies]
+# async runtime
+tokio = { version = "1.44", features = ["full"] }
+# serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# error handling
+thiserror = "2.0"
+anyhow = "1.0"
+# async traits
+async-trait = "0.1"
+# tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+# time
+chrono = { version = "0.4", features = ["serde"] }
+# uuid
+uuid = { version = "1.11", features = ["v4", "serde"] }
+# postgres
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono", "json"] }
+# redis
+redis = { version = "0.27", features = ["tokio-comp", "connection-manager", "json"] }
+# text processing / tokenization
+unicode-segmentation = "1.12"
+unicode-normalization = "0.1"
+# fuzzy / distance
+strsim = "0.11"
+# vector similarity (SIMD-accelerated)
+simsimd = "6.2"
+# compression for doc store
+lz4_flex = "0.11"
+# dashmap for in-memory indexes
+dashmap = "6.1"
+# rayon for parallel indexing
+rayon = "1.10"
+# CLI
+clap = { version = "4.5", features = ["derive", "color", "env"] }
+# HTTP (for dashboard)
+axum = { version = "0.8", features = ["json"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace"] }

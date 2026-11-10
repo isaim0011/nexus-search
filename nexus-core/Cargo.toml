@@ -1,0 +1,43 @@
+[package]
+# Published as "nexus-search-core" (plain "nexus-core" is already taken on
+# crates.io by an unrelated project). The `[lib] name` below keeps the Rust
+# import path as `nexus_core::...` unchanged for all internal code.
+name = "nexus-search-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Core types, scoring, and traits for the Nexus search engine"
+keywords = ["search", "full-text", "bm25", "hybrid", "vector"]
+categories = ["database", "text-processing"]
+
+[lib]
+name = "nexus_core"
+path = "src/lib.rs"
+
+[features]
+default = []
+simd = ["simsimd"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+async-trait = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+unicode-segmentation = { workspace = true }
+unicode-normalization = { workspace = true }
+strsim = { workspace = true }
+simsimd = { workspace = true, optional = true }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+uuid = { workspace = true }
+
+[[bench]]
+name = "scoring"
+harness = false
