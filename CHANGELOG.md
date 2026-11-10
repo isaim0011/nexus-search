@@ -1,8 +1,27 @@
 # Changelog
 
-All notable changes to this workspace are documented here. Each crate
-(`nexus-search-core`, `nexus-postgres`, `nexus-redis`, `nexus-search-cli`,
-`nexus-dashboard`) is versioned together at `0.1.0` for this initial release.
+All notable changes to this workspace are documented here. Crates are
+versioned independently going forward — see each entry for exactly which
+crates moved.
+
+## [0.1.1 / 0.1.2] - 2026-11-10
+
+Metadata-only patch release — no behavior changes to any crate.
+
+### Changed
+- `nexus-search-core`, `nexus-postgres`, `nexus-redis`, `nexus-dashboard`
+  → `0.1.1`: crates.io keywords replaced with higher-intent search terms
+  (e.g. `pgvector`, `rag`, `hybrid-search`, `cache`) in place of generic
+  ones; `nexus-dashboard`'s swapped `api` for `pgvector`.
+- `nexus-search-cli` → `0.1.2`: added `keywords`/`categories` (it had
+  none at `0.1.0`); fixed its docs.rs build for real this time — `0.1.1`
+  had tried `[package.metadata.docs.rs] cargo-args = ["--bins"]`, which
+  turned out not to work because docs.rs hardcodes `--lib` in its build
+  invocation regardless of `cargo-args`. `0.1.2` adds an actual stub
+  `[lib]` target instead, which docs.rs can build.
+- Added 10 GitHub repo topics (`axum`, `postgres`, `pgvector`,
+  `full-text-search`, `bm25`, `rag`, `redis`, `search`, `rust`,
+  `hybrid-search`) for discoverability alongside the crates.io keywords.
 
 ## [0.1.0] - 2026-11-10
 

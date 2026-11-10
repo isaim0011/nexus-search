@@ -239,15 +239,16 @@ Multi-node invalidation is handled automatically via Redis pub/sub on the
 
 ## Published crates
 
-All crates are live on crates.io as of v0.1.0:
+All crates are live on crates.io. Badges above always show the current
+published version; as of this writing:
 
-| Crate | Published as | crates.io |
-|---|---|---|
-| `nexus_core` (Rust import path) | `nexus-search-core` | [crates.io/crates/nexus-search-core](https://crates.io/crates/nexus-search-core) |
-| `nexus_postgres` | `nexus-postgres` | [crates.io/crates/nexus-postgres](https://crates.io/crates/nexus-postgres) |
-| `nexus_redis` | `nexus-redis` | [crates.io/crates/nexus-redis](https://crates.io/crates/nexus-redis) |
-| CLI binary `nexus` | `nexus-search-cli` | [crates.io/crates/nexus-search-cli](https://crates.io/crates/nexus-search-cli) |
-| `nexus_dashboard` | `nexus-dashboard` | [crates.io/crates/nexus-dashboard](https://crates.io/crates/nexus-dashboard) |
+| Crate | Published as | Version | crates.io |
+|---|---|---|---|
+| `nexus_core` (Rust import path) | `nexus-search-core` | 0.1.1 | [crates.io/crates/nexus-search-core](https://crates.io/crates/nexus-search-core) |
+| `nexus_postgres` | `nexus-postgres` | 0.1.1 | [crates.io/crates/nexus-postgres](https://crates.io/crates/nexus-postgres) |
+| `nexus_redis` | `nexus-redis` | 0.1.1 | [crates.io/crates/nexus-redis](https://crates.io/crates/nexus-redis) |
+| CLI binary `nexus` | `nexus-search-cli` | 0.1.2 | [crates.io/crates/nexus-search-cli](https://crates.io/crates/nexus-search-cli) |
+| `nexus_dashboard` | `nexus-dashboard` | 0.1.1 | [crates.io/crates/nexus-dashboard](https://crates.io/crates/nexus-dashboard) |
 
 `nexus-core` and `nexus-cli` were already taken on crates.io by unrelated
 projects, so this workspace publishes those two under the
