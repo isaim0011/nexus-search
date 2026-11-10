@@ -15,6 +15,8 @@ license.workspace = true
 repository.workspace = true
 homepage.workspace = true
 description = "CLI monitor and admin tool for Nexus search indexes"
+keywords = ["cli", "search", "postgres", "admin", "bm25"]
+categories = ["command-line-utilities", "database"]
 
 [lib]
 name = "nexus_search_cli"

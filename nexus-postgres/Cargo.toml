@@ -1,13 +1,15 @@
 [package]
 name = "nexus-postgres"
-version.workspace = true
+# Patch bump over the workspace's 0.1.0: crates.io keyword/discoverability
+# tuning only (no code change). Also now depends on nexus-search-core 0.1.1.
+version = "0.1.1"
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
 repository.workspace = true
 homepage.workspace = true
 description = "PostgreSQL backend for the Nexus search engine"
-keywords = ["search", "postgres", "full-text", "bm25", "pgvector"]
+keywords = ["search", "postgres", "pgvector", "bm25", "rag"]
 categories = ["database"]
 
 [features]

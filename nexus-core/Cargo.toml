@@ -3,14 +3,16 @@
 # crates.io by an unrelated project). The `[lib] name` below keeps the Rust
 # import path as `nexus_core::...` unchanged for all internal code.
 name = "nexus-search-core"
-version.workspace = true
+# Patch bump over the workspace's 0.1.0: crates.io keyword/discoverability
+# tuning only (no code change).
+version = "0.1.1"
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
 repository.workspace = true
 homepage.workspace = true
 description = "Core types, scoring, and traits for the Nexus search engine"
-keywords = ["search", "full-text", "bm25", "hybrid", "vector"]
+keywords = ["search", "bm25", "hybrid-search", "full-text", "vector"]
 categories = ["database", "text-processing"]
 
 [lib]
