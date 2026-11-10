@@ -3,9 +3,12 @@
 # crates.io by an unrelated project). The installed binary is still `nexus`
 # (set explicitly below), unaffected by the package rename.
 name = "nexus-search-cli"
-# Patch bump over the workspace's 0.1.0: fixes the docs.rs build (see
-# [package.metadata.docs.rs] below). Only this crate needed the fix.
-version = "0.1.1"
+# Patch bump over the workspace's 0.1.0: fixes the docs.rs build.
+# v0.1.1 tried [package.metadata.docs.rs] cargo-args = ["--bins"], but
+# docs.rs hardcodes `--lib` in its build invocation regardless of
+# cargo-args, so that alone doesn't work for a crate with no [lib] target.
+# v0.1.2 adds an actual (stub) [lib] target instead — see src/lib.rs.
+version = "0.1.2"
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
@@ -13,15 +16,13 @@ repository.workspace = true
 homepage.workspace = true
 description = "CLI monitor and admin tool for Nexus search indexes"
 
+[lib]
+name = "nexus_search_cli"
+path = "src/lib.rs"
+
 [[bin]]
 name = "nexus"
 path = "src/main.rs"
-
-# This is a binary-only crate (no [lib] target). docs.rs defaults to
-# `cargo rustdoc --lib`, which fails with "no library targets found" for
-# bin-only crates — tell it to document the binary instead.
-[package.metadata.docs.rs]
-cargo-args = ["--bins"]
 
 [dependencies]
 nexus-core = { path = "../nexus-core", package = "nexus-search-core", version = "0.1.0" }
